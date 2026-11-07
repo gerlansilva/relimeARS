@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "Se usar este atlas, cite-o como abaixo."
+title: "RELIME · Atlas de redes"
+version: "1.1.0"
+date-released: "2026-11-07"
+repository-code: "https://github.com/gerlansilva/relimeARS"
+type: software
+authors:
+  - given-names: "Gerlan"
+    family-names: "[sobrenome]"
+abstract: "Atlas interativo e script reprodutível das redes de coautoria, palavras-chave e cocitação da RELIME (Scopus, 2009–2024)."
+keywords: ["análise de redes sociais", "educação matemática", "coautoria", "cocitação", "RELIME"]
+# doi: "10.5281/zenodo.XXXXXXX"   # preencha após criar a versão no Zenodo
