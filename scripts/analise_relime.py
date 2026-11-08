@@ -72,7 +72,7 @@ CANV = set(CAN.values())
 def tok(t):
     t = CAN.get(t, t)
     return t[:-1] if t not in CANV and len(t) > 3 and t.endswith('s') and not t.endswith('ss') else t
-def kkey(s): return ' '.join(sorted({tok(w) for w in re.findall(r'[a-z]+', fold(s)) if w not in STOP}))
+def kkey(s): return ' '.join(sorted({tok(w) for w in re.findall(r'[a-z]+', re.sub(r'\be-(?=[a-z])', 'e', fold(s))) if w not in STOP}))  # e-learning != learning
 orig = collections.defaultdict(collections.Counter)
 def kws(s):
     if str(s) == 'nan': return []

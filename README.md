@@ -4,11 +4,21 @@ Site estático para explorar as redes da produção científica da *Revista Lati
 
 ## O que há de novo na v1.1
 
-- **Autores desambiguados.** Quatro autores com dois IDs da Scopus cada (Cordero Osorio, Farfán, Oktaç e Parraguez), confirmados pelo nome completo normalizado, foram unificados. A rede passa de 483 para 479 autores e de 152 para 150 componentes. A lista está em `idMerges` no JSON de dados.
-- **Resultados reproduzíveis.** Nova seção na página, com figuras (SVG), tabelas (CSV), teste de vocabulário, redes por período e sensibilidade à desambiguação. Tudo é gerado por `scripts/analise_relime.py`.
-- **Links da vista.** O endereço (`#k=...&f=...`) guarda rede, período, filtros e nó selecionado; o botão “Copiar link da vista” facilita citar uma figura do atlas no texto.
-- **Exportação com legenda.** O SVG exportado traz fonte, regras de cor e versão.
-- **Impressão.** A página oculta controles ao imprimir.
+**Interface**
+- Mapa em tela cheia: a área de visualização ocupa a janela inteira abaixo de uma barra compacta.
+- Filtros e Detalhes são painéis flutuantes que se abrem e fecham (botões na barra); o painel de Detalhes abre sozinho ao selecionar um nó.
+- Modo foco (tecla F; Esc para sair) esconde toda a interface. Há também tela cheia.
+- Legenda recolhível sob o mapa; seções de resultados, referencial e método em cartões recolhíveis.
+- Botão “Copiar link da vista”: o endereço (`#k=...`) guarda rede, período, filtros e nó selecionado.
+- Exportação em SVG com legenda, fonte e versão. Impressão sem controles.
+
+**Dados**
+- Autores desambiguados: quatro autores com dois IDs da Scopus cada (Cordero Osorio, Farfán, Oktaç e Parraguez), confirmados pelo nome completo normalizado, foram unificados (483 para 479 autores; 152 para 150 componentes). Lista em `idMerges` no JSON.
+- Palavras-chave harmonizadas (759 para 704 termos): sem acento, caixa nem plural, e com equivalentes em espanhol, português, francês e inglês. O rótulo é a forma mais frequente; as formas originais aparecem em “Variantes unificadas”. Regra automática, não revisada à mão (revise em `keywordHarmonization.exemplos`). Comunidades e layouts da rede foram recalculados.
+
+**Texto científico**
+- Seção “Resultados reproduzíveis”: figuras (SVG), tabelas (CSV), teste de vocabulário, redes por período e sensibilidade à desambiguação, gerados por `scripts/analise_relime.py`.
+- Cartão “Referencial: Fleck e análise de redes”: o coletivo de pensamento é a categoria analítica central; o estilo de pensamento é hipótese a verificar na leitura dos textos, não variável medida. Inclui o quadro de correspondências e limites.
 
 ## Uso local
 
@@ -31,7 +41,7 @@ Gera `saida/resultados.json` e as figuras SVG usadas na seção de resultados. S
 ## Dados e cuidados
 
 - O arquivo `index.html` contém o conjunto de dados derivado da exportação da Scopus (títulos, DOIs, autores, afiliações, palavras-chave e referências). **O CSV original não está no repositório.** Verifique os termos de uso da Scopus/Elsevier antes de redistribuí-lo.
-- A harmonização de palavras-chave (acentos, plurais, equivalentes em espanhol, português, francês e inglês) vale para a seção de resultados; as abas do atlas mantêm sinônimos e traduções separados.
+- A harmonização de palavras-chave é automática e pode juntar o que não deveria (por exemplo, “Content knowledge” e “Pedagogical content knowledge”) ou deixar de juntar; revise antes de publicar.
 - Coautoria é um indício de interação, não de pertencimento a um coletivo de pensamento. A semelhança de vocabulário dentro dos grupos pode vir de autocitação.
 - Os grupos D, E e F têm 4 artigos cada.
 
